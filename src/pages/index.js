@@ -5,14 +5,11 @@ import Navbar from '@/components/Layout/Navbar';
 
 const inter = Inter({ subsets: ['latin'] });
 const space = Space_Grotesk({ subsets: ['latin'], weight: ['600'] });
-console.log(space);
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <Navbar></Navbar>
-      </Head>
+      <Navbar></Navbar>
     </>
   );
 }
