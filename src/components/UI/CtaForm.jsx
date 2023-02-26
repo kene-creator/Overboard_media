@@ -31,7 +31,7 @@ const CtaForm = () => {
             id="ctamail"
             type="text"
             placeholder="Enter your email"
-            className="bg-[#F9F9FD] px-2 py-4 rounded-[2rem] mr-2 outline-none"
+            className="bg-[#e8e8ea] px-4 py-4 rounded-[2rem] mr-2 outline-none w-[15rem]"
             onClick={() => setShowLabel(true)}
             onBlur={handleBlur}
           />

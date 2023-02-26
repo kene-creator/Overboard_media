@@ -1,4 +1,5 @@
 import { Space_Grotesk } from '@next/font/google';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import CtaForm from '../UI/CtaForm';
 
