@@ -27,11 +27,11 @@ const Header = () => {
       </div>
       <div className="mx-auto">
         <Image
-          src="/images/rocket-dynamic-color.png"
+          src="/images/phone2.png"
           alt="rocket icon"
           className=""
-          width={500}
-          height={500}
+          width={600}
+          height={600}
         />
       </div>
     </div>
