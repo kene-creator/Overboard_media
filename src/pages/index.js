@@ -7,6 +7,7 @@ import { useInView } from 'react-intersection-observer';
 import Navbar from '@/components/Layout/Navbar';
 import Header from '@/components/Layout/Header';
 import Affiliates from '@/components/Layout/Affiliates';
+import Achievements from '@/components/Layout/Achievements';
 
 const inter = Inter({ subsets: ['latin'] });
 const space = Space_Grotesk({ subsets: ['latin'], weight: ['600'] });
@@ -45,6 +46,14 @@ export default function Home() {
           transition={{ duration: 1 }}
         >
           <Affiliates />
+        </motion.div>
+        <motion.div
+          ref={ref}
+          initial={{ x: isAffiliatesInView ? 1000 : 0 }}
+          animate={{ x: isAffiliatesInView ? 0 : 1000 }}
+          transition={{ duration: 1.4 }}
+        >
+          <Achievements />
         </motion.div>
       </LayoutGroup>
     </>

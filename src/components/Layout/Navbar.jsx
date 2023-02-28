@@ -11,7 +11,7 @@ const Navbar = () => {
   const links = ['Home', 'How it works', 'Our Work', 'Pricing', 'About Us'];
 
   return (
-    <div className="flex justify-between items-center px-16 h-[4rem] bg-white shadow-md w-full sticky top-0">
+    <div className="flex justify-between items-center px-16 h-[4rem] bg-white shadow-md w-full sticky top-0 z-10">
       <div className="flex justify-center items-center">
         <div>
           <a href="" className="flex items-center justify-center">
