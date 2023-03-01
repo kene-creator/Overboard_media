@@ -8,19 +8,42 @@ import Navbar from '@/components/Layout/Navbar';
 import Header from '@/components/Layout/Header';
 import Affiliates from '@/components/Layout/Affiliates';
 import Achievements from '@/components/Layout/Achievements';
+import HowItWorks from '@/components/Layout/HowItWorks';
 
 const inter = Inter({ subsets: ['latin'] });
 const space = Space_Grotesk({ subsets: ['latin'], weight: ['600'] });
 
 export default function Home() {
   const [isAffiliatesInView, setIsAffiliatesInView] = useState(false);
-  const { ref, inView } = useInView({ threshold: 0 });
+  const [isAcheivementsInView, setIsAchivementsInView] = useState(false);
+  const [isHeaderInView, setIsHeaderInView] = useState(false);
+  const [isHowItWorksInView, setIsHowItWorksInView] = useState(false);
+
+  const { ref: headerRef, inView: isHeaderView } = useInView({ threshold: 0 });
+  const { ref: affiliatesRef, inView: isAffiliatesView } = useInView({
+    threshold: 0,
+  });
+  const { ref: achievementsRef, inView: isAcheivementsView } = useInView({
+    threshold: 0,
+  });
+  const { ref: howItWorksRef, inView: isHowItWorksView } = useInView({
+    threshold: 0,
+  });
 
   useEffect(() => {
-    if (inView) {
+    if (isHeaderView) {
+      setIsHeaderInView(true);
+    }
+    if (isAffiliatesView) {
       setIsAffiliatesInView(true);
     }
-  }, [inView]);
+    if (isAcheivementsView) {
+      setIsAchivementsInView(true);
+    }
+    if (isHowItWorksView) {
+      setIsHowItWorksInView(true);
+    }
+  }, [isHeaderView, isAffiliatesView, isAcheivementsView, isHowItWorksView]);
 
   return (
     <>
@@ -33,27 +56,36 @@ export default function Home() {
       <LayoutGroup>
         <Navbar />
         <motion.div
+          ref={headerRef}
           initial={{ y: -1000 }}
-          animate={{ y: 0 }}
+          animate={{ y: isHeaderInView ? 0 : 1000 }}
           transition={{ duration: 1 }}
         >
           <Header />
         </motion.div>
         <motion.div
-          ref={ref}
+          ref={affiliatesRef}
           initial={{ x: isAffiliatesInView ? 1000 : 0 }}
-          animate={{ x: isAffiliatesInView ? 0 : 1000 }}
+          animate={{ x: isAffiliatesInView ? 0 : 900 }}
           transition={{ duration: 1 }}
         >
           <Affiliates />
         </motion.div>
         <motion.div
-          ref={ref}
-          initial={{ x: isAffiliatesInView ? 1000 : 0 }}
-          animate={{ x: isAffiliatesInView ? 0 : 1000 }}
-          transition={{ duration: 1.4 }}
+          ref={achievementsRef}
+          initial={{ x: isAcheivementsInView ? 1000 : 0 }}
+          animate={{ x: isAcheivementsInView ? 0 : 1000 }}
+          transition={{ duration: 1 }}
         >
           <Achievements />
+        </motion.div>
+        <motion.div
+          ref={howItWorksRef}
+          initial={{ x: isHowItWorksInView ? 1000 : 0 }}
+          animate={{ x: isHowItWorksInView ? 0 : 1000 }}
+          transition={{ duration: 1 }}
+        >
+          <HowItWorks />
         </motion.div>
       </LayoutGroup>
     </>
