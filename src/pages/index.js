@@ -81,8 +81,8 @@ export default function Home() {
         </motion.div>
         <motion.div
           ref={howItWorksRef}
-          initial={{ x: isHowItWorksInView ? 1000 : 0 }}
-          animate={{ x: isHowItWorksInView ? 0 : 1000 }}
+          initial={{ y: 500 }}
+          animate={{ y: isHowItWorksInView ? 0 : 200 }}
           transition={{ duration: 1 }}
         >
           <HowItWorks />
